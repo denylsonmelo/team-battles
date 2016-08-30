@@ -5,38 +5,35 @@
  */
 package br.edu.ifpi.capar.war.team.modelo;
 
+import br.edu.ifpi.capar.war.team.generico.Persitente;
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Agustin
  */
-public class Jogador {
-    private long idJogador;
+public class Jogador extends Persitente {
+
     private String nickName;
     private Jogo jogo;
     private String nome;
-    private String nascimento;// é do tipo data
+    private LocalDateTime nascimento;//@TODO é do tipo data
     private String sexo;
 
-    public Jogador() {
-    }
-    
-    public Jogador(int idJogador, String nome, String nascimento, String sexo, String nickName) {
-        this.idJogador = idJogador;
+    public Jogador(String nickName, Jogo jogo, String nome, LocalDateTime nascimento, String sexo, long id, LocalDateTime dataCriacao, LocalDateTime dataModificao) {
+        super(id, dataCriacao, dataModificao);
+        this.nickName = nickName;
+        this.jogo = jogo;
         this.nome = nome;
         this.nascimento = nascimento;
         this.sexo = sexo;
-        this.nickName = nickName;
-    }
-
-    public long getIdJogador() {
-        return idJogador;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getNascimento() {
+    public LocalDateTime getNascimento() {
         return nascimento;
     }
 
@@ -48,15 +45,11 @@ public class Jogador {
         return nickName;
     }
 
-    public void setIdJogador(int idJogador) {
-        this.idJogador = idJogador;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setNascimento(String nascimento) {
+    public void setNascimento(LocalDateTime nascimento) {
         this.nascimento = nascimento;
     }
 
@@ -68,34 +61,4 @@ public class Jogador {
         this.nickName = nickName;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + (int) (this.idJogador ^ (this.idJogador >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Jogador other = (Jogador) obj;
-        if (this.idJogador != other.idJogador) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
-    
-    
-    
 }

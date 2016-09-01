@@ -5,16 +5,24 @@
  */
 package br.edu.ifpi.capar.war.team.generico;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 /**
  *
  * @author Denylson Melo
  */
-public class Persitente {
+@MappedSuperclass
+public class EntidadeGenerica implements Serializable{
     
+    @Id
     private long id;
+    private boolean deletado;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataModificao;
 
@@ -30,22 +38,31 @@ public class Persitente {
         return dataCriacao;
     }
 
-    public void setDataCriacao(LocalDateTime dataCriacao) {
-        this.dataCriacao = dataCriacao;
+    @PrePersist
+    public void setDataCriacao() {
+        this.dataCriacao = LocalDateTime.now();
     }
 
     public LocalDateTime getDataModificao() {
         return dataModificao;
     }
 
-    public void setDataModificao(LocalDateTime dataModificao) {
-        this.dataModificao = dataModificao;
+    @PreUpdate
+    public void setDataModificao() {
+        this.dataModificao = LocalDateTime.now();
     }
 
-    public Persitente(long id, LocalDateTime dataCriacao, LocalDateTime dataModificao) {
+    public boolean isDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(boolean deletado) {
+        this.deletado = deletado;
+    }
+
+    public EntidadeGenerica(long id) {
         this.id = id;
-        this.dataCriacao = dataCriacao;
-        this.dataModificao = dataModificao;
+        this.deletado = false;
     }
 
     @Override
@@ -68,7 +85,7 @@ public class Persitente {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Persitente other = (Persitente) obj;
+        final EntidadeGenerica other = (EntidadeGenerica) obj;
         if (this.id != other.id) {
             return false;
         }

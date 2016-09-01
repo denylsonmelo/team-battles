@@ -5,14 +5,23 @@
  */
 package br.edu.ifpi.capar.war.team.modelo;
 
+import br.edu.ifpi.capar.war.team.generico.EntidadeGenerica;
+import java.time.LocalDateTime;
+import javax.persistence.Entity;
+
 /**
  *
  * @author Agustin
  */
-class Jogo {
+@Entity
+public class Jogo extends EntidadeGenerica{
     private long idJogo;
     private String nome;
     private String modalidade;
+
+    public Jogo(long id) {
+        super(id);
+    }
     
     
 }

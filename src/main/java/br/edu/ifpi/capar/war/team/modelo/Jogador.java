@@ -5,25 +5,38 @@
  */
 package br.edu.ifpi.capar.war.team.modelo;
 
-import br.edu.ifpi.capar.war.team.generico.Persitente;
+import br.edu.ifpi.capar.war.team.generico.EntidadeGenerica;
 import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Agustin
  */
-public class Jogador extends Persitente {
+@Entity
+public class Jogador extends EntidadeGenerica {
 
     private String nickName;
-    private Jogo jogo;
     private String nome;
     private LocalDateTime nascimento;//@TODO é do tipo data
     private String sexo;
 
-    public Jogador(String nickName, Jogo jogo, String nome, LocalDateTime nascimento, String sexo, long id, LocalDateTime dataCriacao, LocalDateTime dataModificao) {
-        super(id, dataCriacao, dataModificao);
+    public Jogador() {
+        super(1);
+    }
+
+    @Override
+    public String toString() {
+        return "Jogador{" + "nickName=" + nickName + ", nome=" + nome + ", nascimento=" + nascimento + ", sexo=" + sexo + '}';
+    }
+    
+    public Jogador(String nickName, String nome, LocalDateTime nascimento, String sexo, long id) {
+        super(id);
         this.nickName = nickName;
-        this.jogo = jogo;
         this.nome = nome;
         this.nascimento = nascimento;
         this.sexo = sexo;

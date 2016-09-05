@@ -91,5 +91,4 @@ public class EntidadeGenerica implements Serializable{
         }
         return true;
     }
-    
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.edu.ifpi.capar.war.team.generico;
 
 import java.io.Serializable;
@@ -15,7 +11,7 @@ import javax.persistence.PreUpdate;
 
 /**
  *
- * @author Denylson Melo
+ * @author Patrick Rodrigues
  */
 @MappedSuperclass
 public class EntidadeGenerica implements Serializable{

@@ -1,21 +1,12 @@
 package br.edu.ifpi.capar.war.team.dao;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-import br.edu.ifpi.capar.war.team.modelo.Jogador;
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
  *
- * @author 1856831
+ * @author Patrick Rodrigues
  */
 public class TestarConnection {
 

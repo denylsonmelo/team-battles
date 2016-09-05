@@ -5,85 +5,73 @@
  */
 package br.edu.ifpi.capar.war.team.modelo;
 
-import java.io.Serializable;
+import br.edu.ifpi.capar.war.team.generico.EntidadeGenerica;
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
- /*
- * @author Patrick Rodrigues 
+/**
+ *
+ * @author Agustin
  */
 @Entity
-public class Jogador implements Serializable {
+public class Jogador extends EntidadeGenerica {
 
-    @Id @GeneratedValue
-    private long id;
-    //apelido do jogador
     private String nickName;
     private String nome;
     private LocalDateTime nascimento;//@TODO é do tipo data
-    private Character sexo;
-    @OneToOne
-    private Time time;
+    private String sexo;
 
     public Jogador() {
+        super(1);
     }
 
-    public Jogador(String nickName, String nome, LocalDateTime nascimento, Character sexo, Time time) {
+    @Override
+    public String toString() {
+        return "Jogador{" + "nickName=" + nickName + ", nome=" + nome + ", nascimento=" + nascimento + ", sexo=" + sexo + '}';
+    }
+    
+    public Jogador(String nickName, String nome, LocalDateTime nascimento, String sexo, long id) {
+        super(id);
         this.nickName = nickName;
         this.nome = nome;
         this.nascimento = nascimento;
         this.sexo = sexo;
-        this.time = time;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public LocalDateTime getNascimento() {
         return nascimento;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setNascimento(LocalDateTime nascimento) {
         this.nascimento = nascimento;
     }
 
-    public Character getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Character sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    public Time getTime() {
-        return time;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    @Override
-    public String toString() {
-        return "Jogador{" + "nickName=" + nickName + 
-                ", nome=" + nome + ", nascimento=" + nascimento + 
-                ", sexo=" + sexo + ", time=" + time + '}';
-    }
-    
 }

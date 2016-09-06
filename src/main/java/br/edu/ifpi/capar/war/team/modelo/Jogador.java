@@ -7,25 +7,28 @@ package br.edu.ifpi.capar.war.team.modelo;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
  /*
  * @author Patrick Rodrigues 
  */
 @Entity
+@SequenceGenerator(name = "jogador_sequence", initialValue = 1, allocationSize = 1, sequenceName = "jogagor_sequence_id")
 public class Jogador implements Serializable {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(generator = "jogador_sequence")
     private long id;
     //apelido do jogador
     private String nickName;
     private String nome;
     private LocalDateTime nascimento;//@TODO é do tipo data
     private Character sexo;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Time time;
 
     public Jogador() {

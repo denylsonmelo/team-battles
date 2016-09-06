@@ -19,18 +19,17 @@ public class Treinador implements Serializable{
     private String nome;
     private String nascimento;// é do tipo data
     private Character sexo;
-    @OneToOne
-    private List<Time> listTime;
+    private Time time;
 
     public Treinador() {
     }
 
-    public Treinador(long id, String nome, String nascimento, Character sexo, List<Time> listTime) {
+    public Treinador(long id, String nome, String nascimento, Character sexo, Time time) {
         this.id = id;
         this.nome = nome;
         this.nascimento = nascimento;
         this.sexo = sexo;
-        this.listTime = listTime;
+        this.time = time;
     }
 
     public long getId() {
@@ -65,12 +64,12 @@ public class Treinador implements Serializable{
         this.sexo = sexo;
     }
 
-    public List<Time> getListTime() {
-        return listTime;
+    public Time getTime() {
+        return time;
     }
 
-    public void setListTime(List<Time> listTime) {
-        this.listTime = listTime;
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     @Override
@@ -102,6 +101,6 @@ public class Treinador implements Serializable{
     public String toString() {
         return "Treinador{" + "id=" + id + ", nome=" + nome + 
                 ", nascimento=" + nascimento + ", sexo=" + sexo + 
-                ", listTime=" + listTime + '}';
+                ", time=" + time + '}';
     }
 }

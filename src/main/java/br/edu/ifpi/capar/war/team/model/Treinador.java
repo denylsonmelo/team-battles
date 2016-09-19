@@ -1,4 +1,4 @@
-package br.edu.ifpi.capar.war.team.modelo;
+package br.edu.ifpi.capar.war.team.model;
 
 import java.io.Serializable;
 import java.util.List;

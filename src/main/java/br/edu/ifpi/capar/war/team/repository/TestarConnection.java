@@ -1,7 +1,7 @@
-package br.edu.ifpi.capar.war.team.dao;
+package br.edu.ifpi.capar.war.team.repository;
 
-import br.edu.ifpi.capar.war.team.modelo.Jogador;
-import br.edu.ifpi.capar.war.team.modelo.Time;
+import br.edu.ifpi.capar.war.team.model.Jogador;
+import br.edu.ifpi.capar.war.team.model.Time;
 import java.time.LocalDate;
 import java.time.Month;
 import javax.persistence.EntityManager;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpi.capar.war.team.modelo;
+package br.edu.ifpi.capar.war.team.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,8 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
- /*
- * @author Patrick Rodrigues 
+/**
+ * Classe persistida no banco para guardar um jogador
+ *
+ * @author Patrick Rodrigues
+ * @author Denylson Melo
+ * @author Augustin
  */
 @Entity
 @SequenceGenerator(name = "jogador_sequence", initialValue = 1, allocationSize = 1, sequenceName = "jogagor_sequence_id")
@@ -31,9 +35,21 @@ public class Jogador implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private Time time;
 
+    /**
+     * Construtor padrão da classe Jogador
+     */
     public Jogador() {
     }
 
+    /**
+     * Construtor completo da classe Jogador
+     * 
+     * @param nickName Apelido escolhido pelo jogador
+     * @param nome
+     * @param nascimento
+     * @param sexo
+     * @param time 
+     */
     public Jogador(String nickName, String nome, LocalDateTime nascimento, Character sexo, Time time) {
         this.nickName = nickName;
         this.nome = nome;
@@ -42,6 +58,11 @@ public class Jogador implements Serializable {
         this.time = time;
     }
 
+    /**
+     * Metodo que retorna o apelido do jogador
+     * 
+     * @return Apelido do jogador
+     */
     public String getNickName() {
         return nickName;
     }

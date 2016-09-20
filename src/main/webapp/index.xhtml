@@ -11,9 +11,9 @@
 
         <h:outputLabel value="#{mbTela.nomeVindoDaTela}" id="meuLabel"/>
         <h:form>
-            <p:inputText placeholder="Coloque algum texto"  value="#{mbTela.nome}"/>
+            <p:inputText placeholder="Coloque algum texto"  value="#{mbTela.nome}" id="meuInput"/>
             <p:commandButton actionListener="#{mbTela.fazerAlgumaCoisa()}" value="Nome do botao"
-                             update="meuLabel"/>
+                             update="meuLabel meuInput"/>
         </h:form>
 
 

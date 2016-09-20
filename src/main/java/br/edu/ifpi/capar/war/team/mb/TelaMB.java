@@ -1,18 +1,23 @@
 package br.edu.ifpi.capar.war.team.mb;
 
-import javax.faces.bean.ManagedBean;
+import java.io.Serializable;
 import javax.inject.Named;
-
+import org.omnifaces.cdi.ViewScoped;
 
 /**
  *
  * @author Denylson Melo
  */
-@ManagedBean(name = "mbTela")
-public class TelaMB {
+@Named("mbTela")
+@ViewScoped
+public class TelaMB implements Serializable{
 
     private String nome;
     private String nomeVindoDaTela;
+
+    public TelaMB() {
+        System.out.println("contruiu a classe nesse momento");
+    }
 
     public String getNomeVindoDaTela() {
         return nomeVindoDaTela;
@@ -21,12 +26,12 @@ public class TelaMB {
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void fazerAlgumaCoisa(){
+    public void fazerAlgumaCoisa() {
         System.out.println(nome);
         nomeVindoDaTela = nome;
         nome = new String();

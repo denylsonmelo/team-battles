@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <meta charset="UTF-8" />
+        <title>
+            <ui:insert name="title">
+                War-Team - Sistema de controle de campeonatos de e-sports
+            </ui:insert>
+        </title>
+        <ui:include src="imports.xhtml" />
+    </h:head>
+
+    <ui:insert name="header">
+        <ui:include src="header.xhtml" />
+    </ui:insert>
+
+    <ui:insert name="menu">
+        <ui:include src="menu.xhtml" />
+    </ui:insert>
+
+    <section>
+        <ui:insert name="content"> 
+            Conteúdo da Página 
+        </ui:insert>
+    </section>
+
+    <ui:insert name="footer">
+        <ui:include src="footer.xhtml" />
+    </ui:insert>
+
+    <h:body>
+    </h:body>
+</html>

@@ -7,10 +7,10 @@
                 template="./resources/templates/template.xhtml">
     
     <ui:define name="content">
-        <h:outputLabel value="#{mbTela.nomeVindoDaTela}" id="meuLabel"/>
+        <h:outputLabel value="#{telaMB.nomeVindoDaTela}" id="meuLabel"/>
         <h:form>
-            <p:inputText placeholder="Coloque algum texto"  value="#{mbTela.nome}" id="meuInput"/>
-            <p:commandButton actionListener="#{mbTela.fazerAlgumaCoisa()}" value="Nome do botao"
+            <p:inputText placeholder="Coloque algum texto"  value="#{telaMB.nome}" id="meuInput"/>
+            <p:commandButton actionListener="#{telaMB.fazerAlgumaCoisa()}" value="Nome do botao"
                              update="meuLabel meuInput"/>
         </h:form>
         <br />

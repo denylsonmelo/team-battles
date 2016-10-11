@@ -1,15 +1,13 @@
 package br.edu.ifpi.capar.war.team.mb;
 
 import java.io.Serializable;
-import javax.inject.Named;
-import org.omnifaces.cdi.ViewScoped;
+import javax.enterprise.inject.Model;
 
 /**
  *
  * @author Denylson Melo
  */
-@Named("mbTela")
-@ViewScoped
+@Model
 public class TelaMB implements Serializable{
 
     private String nome;
@@ -34,6 +32,5 @@ public class TelaMB implements Serializable{
     public void fazerAlgumaCoisa() {
         System.out.println(nome);
         nomeVindoDaTela = nome;
-        nome = new String();
     }
 }
